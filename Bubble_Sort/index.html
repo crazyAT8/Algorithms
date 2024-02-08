@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Algorithm</title>
+</head>
+<body>
+    <div class="content">
+
+        <div class="head">
+            <h1>Bubble Sort</h1>
+        </div>
+         
+        <div class="description">
+            <p>Bubble sort is a straightforward sorting algorithm that repeatedly steps through the list, <br>
+                 compares adjacent elements, and swaps them if they are in the wrong order. <br>
+                  This process is repeated until the list is sorted. <br>
+                   The algorithm gets its name bc smaller elements "bubble" to the top of the list (beginning of the array) with each iteration.</p>
+        </div>
+
+        <div class="code">
+            <code>
+                // pseudo code <br>
+                <br>
+                procedure bubbleSort( A : list of sortable items )                                  <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;n := length(A)                                                  <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;repeat                                                          <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swapped := false                           <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for i := 1 to n-1 inclusive do             <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if A[i-1] &gt; A[i] then <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(A[i-1], A[i])  <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swapped := true     <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if                                  <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end for                                                     <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n := n - 1                                                  <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;until not swapped                                                               <br>
+                end procedure                                                                                       <br>
+            </code>
+
+            <ol>
+                <li>initialize 'n': Set 'n' to the length of the list 'A'</li>
+                <li>Repeat loop: The algorithm repeats the following steps until no swaps are made in a complete pass (indicated by 'swapped' being 'false').
+                    <ul>
+                        <li>Set "swapped" flag: At the beginning of each pass, set "swapped" to "false".</li>
+                        <li>Iterate over the array: For each element in the array (from the first element up to the second-to-last element):
+                            <ul>
+                                <li>Compare and swap: if the surrent element ('A[i-1]') is greater than the next element ('A[i]'), swap them and set 'swapped' to 'true'.</li>
+                            </ul>
+                        </li>
+                        <li>Reduce 'n': After each pass, reduce 'n' by 1 because the last element is correctly positioned and doesn't need to be compared again.</li>
+                    </ul>
+                </li>
+                <li>Until condition: The loop continues until a complete pass is made without any swaps ("swapped" is "false"), indicating that the list is sorted.</li>
+            </ol>
+            <p>This pseudo code provides a clear, language-agnostic representation of the bubble sort algorithm, highlighting the logic and steps involved without the syntax specifics of any programming language.</p>
+
+            <code>
+                <br>
+            // JavaScript <br>
+<br>
+                function bubbleSort(arr) {                                              <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;let n = arr.length;                     <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;let swapped;                                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;do {                                            <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swapped = false;                        <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (let i = 1; i &lt; n; i++) {                        <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[i - 1] &gt; arr[i]) {                                   <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Swap elements                                            <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let temp = arr[i - 1];                                      <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[i - 1] = arr[i];                                        <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[i] = temp;                                          <br>
+                                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swapped = true;                                                 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}                                                           <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}                                                                   <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Reduce n because the last element is already in place        <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n--;                                                            <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} while (swapped);                                                  <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return arr;                                                         <br>
+                }                                                                       <br>
+                <br>
+                // Example usage:                                                       <br>
+                const arr = [64, 34, 25, 12, 22, 11, 90];                               <br>
+                console.log("Sorted array:", bubbleSort(arr));                  
+            </code>
+            <ul>
+                <li>This function takes an array as input and sorts it in ascending order.</li>
+                <li>It uses a 'do-while' loop to keep running until no more swaps are needed</li>
+                <li>indicating that the array is sorted</li>
+                <li>the 'swapped' flag is used to track whether any elements were swapped in the surrent iteration</li>
+                <li>if no elements were swapped, the array is sorted, and the algorithm can terminate.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
